@@ -1,0 +1,6 @@
+{
+  "name": "Mỳ Cay Hà My",
+  "description": "Landing Page cao cấp dành cho thương hiệu Mỳ Cay Hà My. Chinh phục mì cay 7 cấp độ, toppings hấp dẫn cùng combo tiện lợi chuẩn vị Hàn Quốc.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
