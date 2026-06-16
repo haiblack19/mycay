@@ -181,7 +181,7 @@ export default function App() {
         subtotal: subtotal.toLocaleString('vi-VN') + 'đ',
         delivery_fee: deliveryFee === 0 ? 'Miễn phí' : deliveryFee.toLocaleString('vi-VN') + 'đ',
         total_bill: totalBill.toLocaleString('vi-VN') + 'đ',
-        to_email: 'tranngoc1o69@gmail.com',
+        to_email: 'phucdat276@gmail.com',
       };
 
       await emailjs.send(
@@ -441,7 +441,7 @@ export default function App() {
                 </li>
                 <li className="flex items-center space-x-2.5">
                   <Smile className="w-4.5 h-4.5 text-amber-500 flex-shrink-0" />
-                  <span>Email: tranngoc1o69@gmail.com</span>
+                  <span>Email: phucdat276@gmail.com</span>
                 </li>
               </ul>
             </div>

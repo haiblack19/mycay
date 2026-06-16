@@ -26,7 +26,7 @@ npm run dev
 ### Bước 2 — Kết nối Gmail
 
 1. Vào **Email Services** → **Add New Service**
-2. Chọn **Gmail** → Đăng nhập Gmail `tranngoc1o69@gmail.com` → **Connect Account**
+2. Chọn **Gmail** → Đăng nhập Gmail `phucdat276@gmail.com` → **Connect Account**
 3. Đặt **Service ID** là `mycay_gmail` (hoặc tùy ý) → **Create Service**
 4. Copy **Service ID** lại
 
@@ -59,7 +59,7 @@ npm run dev
 <p style="font-size:18px;color:#ff4d00;"><b>Tổng thanh toán (COD): {{total_bill}}</b></p>
 ```
 
-3. Trong tab **Settings** của template, đặt **To Email**: `tranngoc1o69@gmail.com`
+3. Trong tab **Settings** của template, đặt **To Email**: `phucdat276@gmail.com`
 4. Bấm **Save** → Copy **Template ID**
 
 ### Bước 4 — Lấy Public Key
