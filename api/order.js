@@ -99,11 +99,11 @@ export default async function handler(req, res) {
       html,
     });
 
-    // Return a safe acknowledgement including the Resend message id for debugging (no secrets)
+    // Debug: return the full sendResult so we can inspect Resend's response (temporary)
     return res.status(200).json({
       success: true,
       message: 'Đơn hàng đã được đặt và email thông báo đã gửi thành công!',
-      resend: { id: sendResult?.id || null }
+      resend: sendResult || null
     });
   } catch (error) {
     console.error('Resend error:', error);
