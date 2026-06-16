@@ -180,16 +180,25 @@ export default function App() {
         }),
       });
 
-      const data = await response.json();
+      const text = await response.text();
+      let data: any = null;
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        // not JSON (could be index.html or error page)
+      }
 
       if (response.ok) {
         setIsOrderPlaced(true);
       } else {
-        setFormError(data.error || 'Có lỗi xảy ra khi xử lý đơn hàng.');
+        // Prefer explicit message from API, otherwise show raw text or status
+        if (data && data.error) setFormError(data.error);
+        else if (text) setFormError(`Server returned ${response.status}: ${text.substring(0, 200)}`);
+        else setFormError('Có lỗi xảy ra khi xử lý đơn hàng.');
       }
     } catch (err) {
       console.error('Order error:', err);
-      setFormError('Không thể kết nối server. Vui lòng gọi trực tiếp: 0971062696');
+      setFormError(`Không thể kết nối server. Chi tiết: ${err?.message || err}. Vui lòng gọi trực tiếp: 0971062696`);
     } finally {
       setIsSendingOrder(false);
     }
