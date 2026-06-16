@@ -433,7 +433,7 @@ export default function App() {
               <ul className="space-y-3 text-xs sm:text-[13px] text-neutral-400">
                 <li className="flex items-start space-x-2.5">
                   <MapPin className="w-4.5 h-4.5 text-orange-500 flex-shrink-0 mt-0.5" />
-                  <span>123 Đường Hàn Quốc, Quận 1, TP. Hồ Chí Minh</span>
+                  <span>71C, Ngách 71, Ngõ 342 Khương Đình, P. Khương Đình, Hà Nội</span>
                 </li>
                 <li className="flex items-center space-x-2.5">
                   <Phone className="w-4.5 h-4.5 text-orange-500 flex-shrink-0" />
