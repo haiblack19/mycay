@@ -1,40 +1,104 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🍜 Mỳ Cay Hà My — Landing Page
 
-# Run and deploy your AI Studio app
+Landing Page cao cấp cho thương hiệu **Mỳ Cay Hà My**.  
+Tích hợp giỏ hàng, đặt món, gửi thông báo đơn hàng qua **EmailJS** (miễn phí, không cần server).
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/13941081-46f0-4fa6-af19-ed213c88fa49
+## 🚀 Cài đặt & Chạy Local
 
-## Run Locally
+```bash
+npm install
+npm run dev
+```
 
-**Prerequisites:**  Node.js
+---
 
+## 📧 Cấu hình EmailJS (Gửi mail đơn hàng)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+> Không cần SMTP, không cần mật khẩu — chỉ cần đăng ký EmailJS miễn phí!
 
-## Deploy to Vercel
+### Bước 1 — Đăng ký EmailJS
 
-### 1. Cấu hình biến môi trường (Environment Variables)
-Khi deploy lên Vercel, hãy thiết lập các biến môi trường sau trong Vercel Dashboard -> Settings -> Environment Variables để bật chức năng gửi email thông báo đơn hàng:
+1. Truy cập [https://www.emailjs.com/](https://www.emailjs.com/) → **Sign Up Free**
+2. Đăng nhập bằng Google hoặc email bất kỳ
 
-- `SMTP_HOST`: Địa chỉ máy chủ SMTP (ví dụ: `smtp.gmail.com` nếu dùng Gmail, hoặc `smtp.sendgrid.net`...).
-- `SMTP_PORT`: Cổng kết nối SMTP (thường là `587` cho bảo mật TLS hoặc `465` cho SSL).
-- `SMTP_USER`: Tài khoản email dùng để gửi (ví dụ: `quangianhamy@gmail.com`).
-- `SMTP_PASS`: Mật khẩu ứng dụng (App Password) của tài khoản email trên. (Đối với Gmail, hãy tạo mật khẩu ứng dụng trong phần bảo mật của tài khoản Google của bạn).
-- `EMAIL_TO`: Địa chỉ email nhận thông báo đơn hàng (nếu bỏ trống, hệ thống sẽ tự động gửi về chính email `SMTP_USER`).
-- `EMAIL_FROM`: Tên người gửi hiển thị trong hòm thư (ví dụ: `"Mỳ Cay Hà My" <quangianhamy@gmail.com>`).
+### Bước 2 — Kết nối Gmail
 
-### 2. Chạy thử nghiệm Local với Vercel CLI
-Bạn có thể chạy cả Frontend và Serverless Function gửi email ở máy cá nhân bằng cách:
-1. Cài đặt Vercel CLI toàn cục: `npm i -g vercel`
-2. Đăng nhập và liên kết dự án: `vercel login` rồi `vercel link`
-3. Tạo tệp `.env` chứa các biến môi trường trên ở thư mục gốc.
-4. Chạy lệnh: `vercel dev`
+1. Vào **Email Services** → **Add New Service**
+2. Chọn **Gmail** → Đăng nhập Gmail `tranngoc1o69@gmail.com` → **Connect Account**
+3. Đặt **Service ID** là `mycay_gmail` (hoặc tùy ý) → **Create Service**
+4. Copy **Service ID** lại
 
+### Bước 3 — Tạo Email Template
+
+1. Vào **Email Templates** → **Create New Template**
+2. Dán nội dung sau vào template:
+
+**Subject:**
+```
+[Mỳ Cay Hà My] Đơn Hàng Mới - {{customer_name}} ({{customer_phone}})
+```
+
+**Body (HTML):**
+```html
+<h2>🍜 Đơn hàng mới từ Mỳ Cay Hà My</h2>
+
+<h3>Thông tin khách hàng</h3>
+<p><b>Họ tên:</b> {{customer_name}}</p>
+<p><b>Điện thoại:</b> {{customer_phone}}</p>
+<p><b>Địa chỉ:</b> {{customer_address}}</p>
+<p><b>Ghi chú:</b> {{customer_notes}}</p>
+
+<h3>Chi tiết đơn hàng</h3>
+<pre>{{cart_details}}</pre>
+
+<hr/>
+<p>Tổng món: <b>{{subtotal}}</b></p>
+<p>Phí ship: <b>{{delivery_fee}}</b></p>
+<p style="font-size:18px;color:#ff4d00;"><b>Tổng thanh toán (COD): {{total_bill}}</b></p>
+```
+
+3. Trong tab **Settings** của template, đặt **To Email**: `tranngoc1o69@gmail.com`
+4. Bấm **Save** → Copy **Template ID**
+
+### Bước 4 — Lấy Public Key
+
+1. Vào **Account** → **General** → Copy **Public Key**
+
+### Bước 5 — Tạo file `.env`
+
+```bash
+cp .env.example .env
+```
+
+Điền vào file `.env`:
+
+```env
+VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
+VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
+VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxxxxxxx
+```
+
+### Bước 6 — Deploy lên Vercel
+
+Trong **Vercel Dashboard → Settings → Environment Variables**, thêm 3 biến:
+
+| Key | Value |
+|-----|-------|
+| `VITE_EMAILJS_SERVICE_ID` | `service_xxxxxxx` |
+| `VITE_EMAILJS_TEMPLATE_ID` | `template_xxxxxxx` |
+| `VITE_EMAILJS_PUBLIC_KEY` | `xxxxxxxxxxxxxxxxxxxx` |
+
+Sau đó **Redeploy** là xong! 🎉
+
+---
+
+## 🛠 Tech Stack
+
+- React 19 + TypeScript
+- Vite 6
+- Tailwind CSS v4
+- EmailJS (gửi mail đơn hàng)
+- Lucide React (icons)
+- Vercel (hosting)
