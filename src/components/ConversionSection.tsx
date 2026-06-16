@@ -85,7 +85,7 @@ export default function ConversionSection({ onOrderNow }: ConversionSectionProps
                 {/* Product bowl rendering */}
                 <div className="absolute inset-0 bg-white border border-orange-100 p-3 rounded-full shadow-2xl flex items-center justify-center overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&auto=format&fit=crop&q=80"
+                    src="/src/assets/images/mi-cay-bo-my-kim-chi.jpeg"
                     alt="Steaming Hot premium ramyun"
                     className="w-full h-full object-cover rounded-full"
                     referrerPolicy="no-referrer"
