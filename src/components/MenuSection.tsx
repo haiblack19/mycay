@@ -79,7 +79,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Tràn ngập cá viên chiên giòn, súp hải sản rau củ quả hành ngô, kim chi cay tê đậm đà ngon miệng.',
       price: 50000,
       category: 'noodles',
-      image: '/src/assets/images/ca-vien-chien.jpeg'
+      image: '/src/assets/images/mi-cay-ca-vien-chien.jpg'
     },
     {
       id: 'm9',
@@ -87,7 +87,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Dành riêng cho fan của viên chiên: 10 viên chả cá bùi bùi đặc trưng chìm đắm trong nước súp kim chi đỏ rực.',
       price: 45000,
       category: 'noodles',
-      image: '/src/assets/images/ca-vien-chien.jpeg'
+      image: '/src/assets/images/mi-cay-ca-vien-chien.jpg'
     },
     {
       id: 'm10',

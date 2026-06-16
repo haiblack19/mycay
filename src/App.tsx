@@ -215,14 +215,14 @@ export default function App() {
       
       {/* Floating Customer Help Button */}
       <a 
-        href="tel:19008888" 
+        href="tel:0971062696" 
         className="fixed bottom-6 left-6 z-40 bg-neutral-900 hover:bg-orange-600 text-white rounded-full p-4 shadow-xl shadow-neutral-950/20 hover:scale-105 active:scale-95 transition-all text-sm font-semibold flex items-center gap-2 group cursor-pointer"
         id="floating-hotline"
       >
         <span className="bg-orange-500 text-white p-1 rounded-full group-hover:bg-white group-hover:text-orange-600 transition-colors">
           <Phone className="w-3.5 h-3.5 animate-bounce" />
         </span>
-        <span className="hidden sm:inline">CSKH: 1900 8888</span>
+        <span className="hidden sm:inline">CSKH: 0971 062 696</span>
       </a>
 
       {/* Floating Cart Panel Button (Only visible on scroll/when cart is populated) */}
@@ -434,11 +434,11 @@ export default function App() {
                 </li>
                 <li className="flex items-center space-x-2.5">
                   <Phone className="w-4.5 h-4.5 text-orange-500 flex-shrink-0" />
-                  <span className="font-semibold text-white">Hotline: 1900 8888</span>
+                  <span className="font-semibold text-white">Hotline: 0971 062 696</span>
                 </li>
                 <li className="flex items-center space-x-2.5">
                   <Smile className="w-4.5 h-4.5 text-amber-500 flex-shrink-0" />
-                  <span>Email: lienhe@mycayhamy.vn</span>
+                  <span>Email: tranngoc1o69@gmail.com</span>
                 </li>
               </ul>
             </div>
