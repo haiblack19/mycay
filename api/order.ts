@@ -95,8 +95,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   `;
 
   try {
+    const fromAddress = process.env.RESEND_FROM || 'Mỳ Cay Hà My <onboarding@resend.dev>';
+
     await resend.emails.send({
-      from: 'Mỳ Cay Hà My <onboarding@resend.dev>',
+      from: fromAddress,
       to: ['phucdat276@gmail.com'],
       subject: `[Mỳ Cay Hà My] Đơn Hàng Mới - ${customerName} (${customerPhone})`,
       html,
