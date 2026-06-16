@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import MenuSection from './components/MenuSection';
@@ -167,34 +166,29 @@ export default function App() {
     setIsSendingOrder(true);
 
     try {
-      // Build cart summary text for email
-      const cartLines = cart.map(item =>
-        `- ${item.menuItem.name}${item.spiceLevel !== undefined ? ` (Cấp độ ${item.spiceLevel})` : ''} x${item.quantity} = ${(item.menuItem.price * item.quantity).toLocaleString('vi-VN')}đ`
-      ).join('\n');
+      const response = await fetch('/api/order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          customerName: nameTrim,
+          customerPhone: phoneTrim,
+          customerAddress: addressTrim,
+          customerNotes: customerNotes.trim(),
+          cart,
+          totalBill,
+        }),
+      });
 
-      const templateParams = {
-        customer_name: nameTrim,
-        customer_phone: phoneTrim,
-        customer_address: addressTrim,
-        customer_notes: customerNotes.trim() || '(Không có)',
-        cart_details: cartLines,
-        subtotal: subtotal.toLocaleString('vi-VN') + 'đ',
-        delivery_fee: deliveryFee === 0 ? 'Miễn phí' : deliveryFee.toLocaleString('vi-VN') + 'đ',
-        total_bill: totalBill.toLocaleString('vi-VN') + 'đ',
-        to_email: 'phucdat276@gmail.com',
-      };
+      const data = await response.json();
 
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID',
-        templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
-      );
-
-      setIsOrderPlaced(true);
+      if (response.ok) {
+        setIsOrderPlaced(true);
+      } else {
+        setFormError(data.error || 'Có lỗi xảy ra khi xử lý đơn hàng.');
+      }
     } catch (err) {
-      console.error('EmailJS error:', err);
-      setFormError('Có lỗi xảy ra khi gửi đơn hàng. Vui lòng gọi trực tiếp: 0971062696');
+      console.error('Order error:', err);
+      setFormError('Không thể kết nối server. Vui lòng gọi trực tiếp: 0971062696');
     } finally {
       setIsSendingOrder(false);
     }
