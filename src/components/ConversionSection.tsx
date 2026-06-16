@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Calendar, Coffee, Zap, ShoppingBag, ArrowRight } from 'lucide-react';
+import FallbackImage from './FallbackImage';
 
 interface ConversionSectionProps {
   onOrderNow: () => void;
@@ -84,11 +85,10 @@ export default function ConversionSection({ onOrderNow }: ConversionSectionProps
                 
                 {/* Product bowl rendering */}
                 <div className="absolute inset-0 bg-white border border-orange-100 p-3 rounded-full shadow-2xl flex items-center justify-center overflow-hidden">
-                  <img
-                    src="/assets/images/mi-cay-bo-my-kim-chi.jpeg"
+                  <FallbackImage
+                    src={new URL('../assets/images/mi-cay-bo-my-kim-chi.jpeg', import.meta.url).href}
                     alt="Steaming Hot premium ramyun"
                     className="w-full h-full object-cover rounded-full"
-                    referrerPolicy="no-referrer"
                   />
                 </div>
 

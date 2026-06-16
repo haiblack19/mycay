@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flame, CookingPot, Truck, Star, ArrowRight } from 'lucide-react';
+import FallbackImage from './FallbackImage';
 
 interface HeroProps {
   onScrollTo: (id: string) => void;
@@ -11,22 +12,22 @@ export default function Hero({ onScrollTo }: HeroProps) {
     {
       title: 'Mì Cay Bò Mỹ Kim Chi',
       price: '65.000đ',
-  img: '/assets/images/mi-cay-bo-my-kim-chi.jpeg',
+      img: new URL('../assets/images/mi-cay-bo-my-kim-chi.jpeg', import.meta.url).href,
     },
     {
       title: 'Mì Cay Sườn Sụn',
       price: '65.000đ',
-  img: '/assets/images/mi-cay-suon-sun-kim-chi.jpeg',
+      img: new URL('../assets/images/mi-cay-suon-sun-kim-chi.jpeg', import.meta.url).href,
     },
     {
       title: 'Khoai Lang Kén Giòn',
       price: '35.000đ',
-  img: '/assets/images/khoai-lang-nen.jpg',
+      img: new URL('../assets/images/khoai-lang-nen.jpg', import.meta.url).href,
     },
     {
       title: 'Mỳ Cay Hải Sản Hà My',
       price: '67.000đ',
-  img: '/assets/images/mi-cay-hai-san.jpg',
+      img: new URL('../assets/images/mi-cay-hai-san.jpg', import.meta.url).href,
     }
   ];
 
@@ -34,22 +35,22 @@ export default function Hero({ onScrollTo }: HeroProps) {
     {
       title: 'Mì Cay Đặc Biệt',
       price: '87.500đ',
-  img: '/assets/images/mi-cay-dac-biet-nam-kim-chi.jpeg',
+  img: new URL('../assets/images/mi-cay-dac-biet-nam-kim-chi.jpeg', import.meta.url).href,
     },
     {
       title: 'Lạp Xưởng Hà Khẩu',
       price: '20.000đ',
-  img: '/assets/images/lap-xuong.jpg',
+  img: new URL('../assets/images/lap-xuong.jpg', import.meta.url).href,
     },
     {
       title: 'Bạch Tuộc Tươi Thêm',
       price: '15.000đ',
-  img: '/assets/images/bac-tuoc-nuong.jpg',
+  img: new URL('../assets/images/bac-tuoc-nuong.jpg', import.meta.url).href,
     },
     {
       title: 'Dồi Sụn Chiên Giòn',
       price: '15.000đ',
-  img: '/assets/images/doi-sun-chien.png',
+  img: new URL('../assets/images/doi-sun-chien.png', import.meta.url).href,
     }
   ];
 
@@ -57,8 +58,8 @@ export default function Hero({ onScrollTo }: HeroProps) {
     <section id="trang-chu" className="relative pt-28 lg:pt-36 pb-16 lg:pb-24 bg-gradient-to-b from-neutral-50/50 via-white to-[#fbfbfb] overflow-hidden">
       
       {/* Decorative Warm Light Background Circles */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-amber-100/30 rounded-full blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-red-50/20 rounded-full blur-3xl -z-10 pointer-events-none" />
+  <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[640px] sm:w-[800px] h-[320px] sm:h-[400px] bg-amber-100/30 rounded-full blur-3xl -z-10 pointer-events-none" />
+  <div className="absolute top-1/3 right-6 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-red-50/20 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -174,11 +175,10 @@ export default function Hero({ onScrollTo }: HeroProps) {
                       className="bg-white border border-neutral-100/80 p-3 rounded-2xl shadow-[0_10px_24px_rgba(0,0,0,0.02)] flex flex-col gap-2 hover:scale-[1.04] transition-all group"
                     >
                       <div className="overflow-hidden rounded-xl h-36">
-                        <img 
-                          src={item.img} 
-                          alt={item.title} 
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                          referrerPolicy="no-referrer"
+                        <FallbackImage
+                          src={item.img}
+                          alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
                       </div>
                       <div className="px-1 py-0.5">
@@ -202,11 +202,10 @@ export default function Hero({ onScrollTo }: HeroProps) {
                       className="bg-white border border-neutral-100/80 p-3 rounded-2xl shadow-[0_10px_24px_rgba(0,0,0,0.02)] flex flex-col gap-2 hover:scale-[1.04] transition-all group"
                     >
                       <div className="overflow-hidden rounded-xl h-36 border border-neutral-50">
-                        <img 
-                          src={item.img} 
-                          alt={item.title} 
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-                          referrerPolicy="no-referrer"
+                        <FallbackImage
+                          src={item.img}
+                          alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
                       </div>
                       <div className="px-1 py-0.5">
@@ -243,7 +242,7 @@ export default function Hero({ onScrollTo }: HeroProps) {
               <div 
                 key={`mob-${index}`} 
                 onClick={() => onScrollTo('thuc-don')}
-                className="w-36 flex-shrink-0 bg-white border border-neutral-100/80 p-2.5 rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.02)] flex flex-col gap-1.5 active:scale-95 transition-all text-left"
+                className="w-32 sm:w-36 flex-shrink-0 bg-white border border-neutral-100/80 p-2.5 rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.02)] flex flex-col gap-1.5 active:scale-95 transition-all text-left"
               >
                 <div className="w-full aspect-square rounded-xl overflow-hidden bg-neutral-50">
                   <img 

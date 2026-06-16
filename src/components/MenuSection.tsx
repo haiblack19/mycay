@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MenuItem } from '../types';
+import FallbackImage from './FallbackImage';
 import { Flame, Star, Coffee, Soup, Plus, Search, HelpCircle, Check } from 'lucide-react';
 
 interface MenuSectionProps {
@@ -290,11 +291,10 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
                       </span>
                     )}
 
-                    <img 
-                      src={dish.image} 
+                    <FallbackImage
+                      src={dish.image}
                       alt={dish.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      referrerPolicy="no-referrer"
                     />
                     
                     {/* Dark gradient shadow inside card image bottom */}

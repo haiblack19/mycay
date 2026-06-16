@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import MenuSection from './components/MenuSection';
 import ConversionSection from './components/ConversionSection';
 import { MenuItem, CartItem, Testimonial } from './types';
+import FallbackImage from './components/FallbackImage';
 import { 
   Flame, 
   MapPin, 
@@ -44,21 +45,21 @@ export default function App() {
   const testimonials: Testimonial[] = [
     {
       name: 'Trần Minh Quân',
-  avatar: '/assets/images/bac-tuoc-nuong.jpg',
+  avatar: new URL('./assets/images/bac-tuoc-nuong.jpg', import.meta.url).href,
       comment: 'Mình là fan cứng của mì cay ở đây. Nước dùng sền sệt đậm đà, không lỏng bỏng như quán khác. Thử thách cấp độ 3 cay xé lưỡi nhưng ngọt hậu cực ngon. Toppings mực bạch tuộc tươi sần sật.',
       rating: 5,
       date: 'Hôm qua'
     },
     {
       name: 'Nguyễn Thảo Vy',
-  avatar: '/assets/images/mi-cay-xuc-xich-ca-vien.jpeg',
+  avatar: new URL('./assets/images/mi-cay-xuc-xich-ca-vien.jpeg', import.meta.url).href,
       comment: 'Thích nhất là lạp xưởng Hà Khẩu béo ngậy ăn kèm mì cay cấp độ 1 vừa miệng của mình. Quán thiết kế hiện đại sạch sẽ, đóng gói giao hàng bọc giấy bạc giữ nhiệt kỹ lưỡng lắm!',
       rating: 5,
       date: '2 ngày trước'
     },
     {
       name: 'Phạm Thế Hoàng',
-  avatar: '/assets/images/mi-cay-hai-san.jpg',
+  avatar: new URL('./assets/images/mi-cay-hai-san.jpg', import.meta.url).href,
       comment: 'Vừa đặt combo mì bò kèm trà quất của quán hôm nay. Trà quất siêu to dập lửa thần tốc luôn! Mực xoắn với dồi sụn dòn ngon. Rất xứng đáng điểm tuyệt đối.',
       rating: 5,
       date: '1 tuần trước'
@@ -346,11 +347,10 @@ export default function App() {
                   </div>
 
                   <div className="flex items-center space-x-3.5 pt-5 border-t border-neutral-50 mt-5">
-                    <img 
-                      src={item.avatar} 
-                      alt={item.name} 
-                      className="w-10 h-10 rounded-full object-cover border border-orange-100" 
-                      referrerPolicy="no-referrer"
+                    <FallbackImage
+                      src={item.avatar}
+                      alt={item.name}
+                      className="w-10 h-10 rounded-full object-cover border border-orange-100"
                     />
                     <div>
                       <h4 className="font-display font-bold text-neutral-800 text-xs sm:text-sm">{item.name}</h4>
@@ -460,7 +460,7 @@ export default function App() {
 
       {/* Shopping Cart Slide-over Panel drawer layout */}
       <div 
-        className={`fixed inset-y-0 right-0 z-50 w-full sm:w-[460px] max-w-full bg-white shadow-2xl flex flex-col transition-transform duration-300 transform border-l border-neutral-200/50 ${
+        className={`fixed inset-y-0 right-0 z-50 w-full sm:w-[420px] max-w-full bg-white shadow-2xl flex flex-col transition-transform duration-300 transform border-l border-neutral-200/50 ${
           isCartOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         id="shopping-cart-drawer"
