@@ -92,14 +92,19 @@ export default async function handler(req, res) {
   try {
     const fromAddress = process.env.RESEND_FROM || 'Mỳ Cay Hà My <onboarding@resend.dev>';
 
-    await resend.emails.send({
+    const sendResult = await resend.emails.send({
       from: fromAddress,
       to: ['phucdat276@gmail.com'],
       subject: `[Mỳ Cay Hà My] Đơn Hàng Mới - ${customerName} (${customerPhone})`,
       html,
     });
 
-    return res.status(200).json({ success: true, message: 'Đơn hàng đã được đặt và email thông báo đã gửi thành công!' });
+    // Return a safe acknowledgement including the Resend message id for debugging (no secrets)
+    return res.status(200).json({
+      success: true,
+      message: 'Đơn hàng đã được đặt và email thông báo đã gửi thành công!',
+      resend: { id: sendResult?.id || null }
+    });
   } catch (error) {
     console.error('Resend error:', error);
     return res.status(500).json({ error: `Lỗi khi gửi email: ${error?.message || String(error)}` });
