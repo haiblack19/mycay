@@ -20,7 +20,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Bò Mỹ mềm ngọt, xúc xích, kim chi chua cay, cá viên, ngô ngọt, rau nấm tươi mát hầm chung.',
       price: 65000,
       category: 'noodles',
-  image: '/assets/images/mi-cay-bo-my-kim-chi.jpeg',
+  image: new URL('../assets/images/mi-cay-bo-my-kim-chi.jpeg', import.meta.url).href,
       isPopular: true
     },
     {
@@ -29,7 +29,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Món ăn thịnh soạn nhất với tôm sú, bò, sụn non, bạch tuộc tươi, mực giòn, cá viên, xúc xích cùng rau củ, nấm.',
       price: 77000,
       category: 'noodles',
-  image: '/assets/images/mi-cay-thap-cam.jpeg',
+  image: new URL('../assets/images/mi-cay-thap-cam.jpeg', import.meta.url).href,
       isPopular: true
     },
     {
@@ -38,7 +38,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Hương vị truyền thống béo béo từ xúc xích xông khói, cá viên chiên thơm lừng, ngô, bắp cải và nấm kim chi.',
       price: 55000,
       category: 'noodles',
-  image: '/assets/images/mi-cay-xuc-xich-ca-vien.jpeg'
+  image: new URL('../assets/images/mi-cay-xuc-xich-ca-vien.jpeg', import.meta.url).href
     },
     {
       id: 'm4',
@@ -46,7 +46,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Sườn sụn giòn sần sật được hầm mềm, xúc xích đậm đà, cá viên, nấm bùi béo và rau củ thanh mát.',
       price: 65000,
       category: 'noodles',
-  image: '/assets/images/mi-cay-suon-sun-kim-chi.jpeg'
+  image: new URL('../assets/images/mi-cay-suon-sun-kim-chi.jpeg', import.meta.url).href
     },
     {
       id: 'm5',
@@ -54,7 +54,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Đầy đủ tôm sú ngọt nước, trứng ốp la béo ngậy, mực ống, bạch tuộc tươi, xúc xích, cá viên và nấm.',
       price: 87500,
       category: 'noodles',
-  image: '/assets/images/mi-cay-dac-biet-nam-kim-chi.jpeg',
+  image: new URL('../assets/images/mi-cay-dac-biet-nam-kim-chi.jpeg', import.meta.url).href,
       isPopular: true
     },
     {
@@ -63,7 +63,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Vị ngọt tự nhiên của đại dương từ tôm sú, mực giòn, bạch tuộc tươi ngon hòa quyện cùng cải thảo và nấm.',
       price: 67000,
       category: 'noodles',
-  image: '/assets/images/mi-cay-hai-san.jpg'
+  image: new URL('../assets/images/mi-cay-hai-san.jpg', import.meta.url).href
     },
     {
       id: 'm7',
@@ -71,7 +71,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Mì ramyun dai giòn, xúc xích Đức xông khói, cá viên tròn vị, bắp cải xào tỏi và nấm kim châm thanh đạm.',
       price: 55000,
       category: 'noodles',
-  image: '/assets/images/mi-cay-xuc-xich-ca-vien.jpeg'
+  image: new URL('../assets/images/mi-cay-xuc-xich-ca-vien.jpeg', import.meta.url).href
     },
     {
       id: 'm8',
@@ -79,7 +79,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Tràn ngập cá viên chiên giòn, súp hải sản rau củ quả hành ngô, kim chi cay tê đậm đà ngon miệng.',
       price: 50000,
       category: 'noodles',
-  image: '/assets/images/mi-cay-ca-vien-chien.jpg'
+  image: new URL('../assets/images/mi-cay-ca-vien-chien.jpg', import.meta.url).href
     },
     {
       id: 'm9',
@@ -87,7 +87,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Dành riêng cho fan của viên chiên: 10 viên chả cá bùi bùi đặc trưng chìm đắm trong nước súp kim chi đỏ rực.',
       price: 45000,
       category: 'noodles',
-  image: '/assets/images/mi-cay-ca-vien-chien.jpg'
+  image: new URL('../assets/images/mi-cay-ca-vien-chien.jpg', import.meta.url).href
     },
     {
       id: 'm10',
@@ -95,7 +95,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Sườn sụn non tẩm ướp sơ chế kỹ càng, giòn sần sật béo ngậy thêm cho fan mê nhai sụn.',
       price: 15000,
       category: 'toppings',
-  image: '/assets/images/suon-sun.jpg'
+  image: new URL('../assets/images/suon-sun.jpg', import.meta.url).href
     },
     {
       id: 'm11',
@@ -103,7 +103,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Bạch tuộc tươi sống nguyên con loại nhỏ, nhúng lẩu mì dai ngon giòn ngọt đậm đà vị cay.',
       price: 15000,
       category: 'toppings',
-  image: '/assets/images/bac-tuoc-nuong.jpg'
+  image: new URL('../assets/images/bac-tuoc-nuong.jpg', import.meta.url).href
     },
     {
       id: 'm12',
@@ -111,7 +111,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Lạp xưởng nướng đá nổi danh, béo ngậy ngọt nhẹ thơm dịu ngũ vị hương chuẩn chỉ.',
       price: 20000,
       category: 'snacks',
-  image: '/assets/images/lap-xuong.jpg',
+  image: new URL('../assets/images/lap-xuong.jpg', import.meta.url).href,
       isPopular: true
     },
     {
@@ -120,7 +120,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Cá viên chiên lút dầu phồng to vàng ruộm, dai giòn bên ngoài ấm ngọt ẩm mịn phía trong.',
       price: 35000,
       category: 'snacks',
-  image: '/assets/images/ca-vien-chien.jpeg'
+  image: new URL('../assets/images/ca-vien-chien.jpeg', import.meta.url).href
     },
     {
       id: 'm14',
@@ -128,7 +128,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Khoai lang kén ngậy thơm cốt dừa vỏ bột chiên xù ròn rụm bên ngoài, bùi ngọt lịm bên trong.',
       price: 35000,
       category: 'snacks',
-  image: '/assets/images/khoai-lang-nen.jpg'
+  image: new URL('../assets/images/khoai-lang-nen.jpg', import.meta.url).href
     },
     {
       id: 'm15',
@@ -136,7 +136,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Lạp xưởng nướng chiên nóng hổi thái lát vừa ăn, giòn thơm nức mũi chấm tương đỏ tương đen cực cuốn.',
       price: 14000,
       category: 'snacks',
-  image: '/assets/images/lap-xuong.jpg'
+  image: new URL('../assets/images/lap-xuong.jpg', import.meta.url).href
     },
     {
       id: 'm16',
@@ -144,7 +144,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Dồi sụn nhồi hành nấm và sụn non nướng giòn vỏ thơm nức tanh tách sần sật lạ miệng.',
       price: 15000,
       category: 'snacks',
-  image: '/assets/images/doi-sun-chien.png'
+  image: new URL('../assets/images/doi-sun-chien.png', import.meta.url).href
     },
     {
       id: 'm17',
@@ -152,7 +152,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: '1 chiếc xúc xích đỏ rán căng múp tách vỏ giòn chấm tương cay ấm nồng hấp dẫn.',
       price: 13000,
       category: 'snacks',
-  image: '/assets/images/xuc-xich-ran.avif'
+  image: new URL('../assets/images/xuc-xich-ran.avif', import.meta.url).href
     },
     {
       id: 'm18',
@@ -160,7 +160,7 @@ export default function MenuSection({ onAddToOrder }: MenuSectionProps) {
       description: 'Lựa chọn tiện lợi kinh tế nhất gồm 1 bát mì cay bò nấm kim chi nóng hổi cấp 1 và 1 cốc trà quất dầm tươi tắn bùi ngậy đá mát.',
       price: 83000,
       category: 'combos',
-  image: '/assets/images/mi-cay-dac-biet-nam-kim-chi.jpeg',
+  image: new URL('../assets/images/mi-cay-dac-biet-nam-kim-chi.jpeg', import.meta.url).href,
       isPopular: true
     },
   ];
