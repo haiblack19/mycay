@@ -11,22 +11,22 @@ export default function Hero({ onScrollTo }: HeroProps) {
     {
       title: 'Mì Cay Bò Mỹ Kim Chi',
       price: '65.000đ',
-      img: '/src/assets/images/mi-cay-bo-my-kim-chi.jpeg',
+  img: '/assets/images/mi-cay-bo-my-kim-chi.jpeg',
     },
     {
       title: 'Mì Cay Sườn Sụn',
       price: '65.000đ',
-      img: '/src/assets/images/mi-cay-suon-sun-kim-chi.jpeg',
+  img: '/assets/images/mi-cay-suon-sun-kim-chi.jpeg',
     },
     {
       title: 'Khoai Lang Kén Giòn',
       price: '35.000đ',
-      img: '/src/assets/images/khoai-lang-nen.jpg',
+  img: '/assets/images/khoai-lang-nen.jpg',
     },
     {
       title: 'Mỳ Cay Hải Sản Hà My',
       price: '67.000đ',
-      img: '/src/assets/images/mi-cay-hai-san.jpg',
+  img: '/assets/images/mi-cay-hai-san.jpg',
     }
   ];
 
@@ -34,22 +34,22 @@ export default function Hero({ onScrollTo }: HeroProps) {
     {
       title: 'Mì Cay Đặc Biệt',
       price: '87.500đ',
-      img: '/src/assets/images/mi-cay-dac-biet-nam-kim-chi.jpeg',
+  img: '/assets/images/mi-cay-dac-biet-nam-kim-chi.jpeg',
     },
     {
       title: 'Lạp Xưởng Hà Khẩu',
       price: '20.000đ',
-      img: '/src/assets/images/lap-xuong.jpg',
+  img: '/assets/images/lap-xuong.jpg',
     },
     {
       title: 'Bạch Tuộc Tươi Thêm',
       price: '15.000đ',
-      img: '/src/assets/images/bac-tuoc-nuong.jpg',
+  img: '/assets/images/bac-tuoc-nuong.jpg',
     },
     {
       title: 'Dồi Sụn Chiên Giòn',
       price: '15.000đ',
-      img: '/src/assets/images/doi-sun-chien.png',
+  img: '/assets/images/doi-sun-chien.png',
     }
   ];
 

@@ -44,21 +44,21 @@ export default function App() {
   const testimonials: Testimonial[] = [
     {
       name: 'Trần Minh Quân',
-  avatar: '/src/assets/images/bac-tuoc-nuong.jpg',
+  avatar: '/assets/images/bac-tuoc-nuong.jpg',
       comment: 'Mình là fan cứng của mì cay ở đây. Nước dùng sền sệt đậm đà, không lỏng bỏng như quán khác. Thử thách cấp độ 3 cay xé lưỡi nhưng ngọt hậu cực ngon. Toppings mực bạch tuộc tươi sần sật.',
       rating: 5,
       date: 'Hôm qua'
     },
     {
       name: 'Nguyễn Thảo Vy',
-  avatar: '/src/assets/images/mi-cay-xuc-xich-ca-vien.jpeg',
+  avatar: '/assets/images/mi-cay-xuc-xich-ca-vien.jpeg',
       comment: 'Thích nhất là lạp xưởng Hà Khẩu béo ngậy ăn kèm mì cay cấp độ 1 vừa miệng của mình. Quán thiết kế hiện đại sạch sẽ, đóng gói giao hàng bọc giấy bạc giữ nhiệt kỹ lưỡng lắm!',
       rating: 5,
       date: '2 ngày trước'
     },
     {
       name: 'Phạm Thế Hoàng',
-  avatar: '/src/assets/images/mi-cay-hai-san.jpg',
+  avatar: '/assets/images/mi-cay-hai-san.jpg',
       comment: 'Vừa đặt combo mì bò kèm trà quất của quán hôm nay. Trà quất siêu to dập lửa thần tốc luôn! Mực xoắn với dồi sụn dòn ngon. Rất xứng đáng điểm tuyệt đối.',
       rating: 5,
       date: '1 tuần trước'
@@ -311,7 +311,7 @@ export default function App() {
           description: 'Combo bò cấp 1 và trà quất dầm tươi.',
           price: 83000,
           category: 'combos',
-          image: '/src/assets/images/mi-cay-bo-my-kim-chi.jpeg',
+          image: '/assets/images/mi-cay-bo-my-kim-chi.jpeg',
         }, 1)} />
 
         {/* Social Proof & Testimonials Segment */}
