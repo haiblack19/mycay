@@ -1,7 +1,7 @@
 # 🍜 Mỳ Cay Hà My — Landing Page
 
 Landing Page cao cấp cho thương hiệu **Mỳ Cay Hà My**.  
-Tích hợp giỏ hàng, đặt món, gửi thông báo đơn hàng qua **EmailJS** (miễn phí, không cần server).
+Tích hợp giỏ hàng, đặt món, gửi thông báo đơn hàng qua **Resend** trên Vercel Serverless Functions.
 
 ---
 
@@ -14,83 +14,55 @@ npm run dev
 
 ---
 
-## 📧 Cấu hình EmailJS (Gửi mail đơn hàng)
+## 📧 Cấu hình Resend (Gửi mail đơn hàng)
 
-> Không cần SMTP, không cần mật khẩu — chỉ cần đăng ký EmailJS miễn phí!
+Endpoint đặt hàng nằm ở `api/order.js`. Nếu thiếu `RESEND_API_KEY`, endpoint vẫn trả `200` với message placeholder để đơn hàng không làm hỏng trải nghiệm người dùng, nhưng email sẽ không được gửi.
 
-### Bước 1 — Đăng ký EmailJS
+### Local
 
-1. Truy cập [https://www.emailjs.com/](https://www.emailjs.com/) → **Sign Up Free**
-2. Đăng nhập bằng Google hoặc email bất kỳ
-
-### Bước 2 — Kết nối Gmail
-
-1. Vào **Email Services** → **Add New Service**
-2. Chọn **Gmail** → Đăng nhập Gmail `phucdat276@gmail.com` → **Connect Account**
-3. Đặt **Service ID** là `mycay_gmail` (hoặc tùy ý) → **Create Service**
-4. Copy **Service ID** lại
-
-### Bước 3 — Tạo Email Template
-
-1. Vào **Email Templates** → **Create New Template**
-2. Dán nội dung sau vào template:
-
-**Subject:**
-```
-[Mỳ Cay Hà My] Đơn Hàng Mới - {{customer_name}} ({{customer_phone}})
-```
-
-**Body (HTML):**
-```html
-<h2>🍜 Đơn hàng mới từ Mỳ Cay Hà My</h2>
-
-<h3>Thông tin khách hàng</h3>
-<p><b>Họ tên:</b> {{customer_name}}</p>
-<p><b>Điện thoại:</b> {{customer_phone}}</p>
-<p><b>Địa chỉ:</b> {{customer_address}}</p>
-<p><b>Ghi chú:</b> {{customer_notes}}</p>
-
-<h3>Chi tiết đơn hàng</h3>
-<pre>{{cart_details}}</pre>
-
-<hr/>
-<p>Tổng món: <b>{{subtotal}}</b></p>
-<p>Phí ship: <b>{{delivery_fee}}</b></p>
-<p style="font-size:18px;color:#ff4d00;"><b>Tổng thanh toán (COD): {{total_bill}}</b></p>
-```
-
-3. Trong tab **Settings** của template, đặt **To Email**: `phucdat276@gmail.com`
-4. Bấm **Save** → Copy **Template ID**
-
-### Bước 4 — Lấy Public Key
-
-1. Vào **Account** → **General** → Copy **Public Key**
-
-### Bước 5 — Tạo file `.env`
+Tạo file `.env`:
 
 ```bash
 cp .env.example .env
 ```
 
-Điền vào file `.env`:
+Điền key Resend:
 
 ```env
-VITE_EMAILJS_SERVICE_ID=service_xxxxxxx
-VITE_EMAILJS_TEMPLATE_ID=template_xxxxxxx
-VITE_EMAILJS_PUBLIC_KEY=xxxxxxxxxxxxxxxxxxxx
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+RESEND_FROM="Mỳ Cay Hà My <onboarding@resend.dev>"
 ```
 
-### Bước 6 — Deploy lên Vercel
+### Production trên Vercel
 
-Trong **Vercel Dashboard → Settings → Environment Variables**, thêm 3 biến:
+Trong **Vercel Dashboard → Project → Settings → Environment Variables**, thêm:
 
 | Key | Value |
 |-----|-------|
-| `VITE_EMAILJS_SERVICE_ID` | `service_xxxxxxx` |
-| `VITE_EMAILJS_TEMPLATE_ID` | `template_xxxxxxx` |
-| `VITE_EMAILJS_PUBLIC_KEY` | `xxxxxxxxxxxxxxxxxxxx` |
+| `RESEND_API_KEY` | Resend API key |
+| `RESEND_FROM` | Optional sender override |
 
-Sau đó **Redeploy** là xong! 🎉
+Scope nên là **Production** hoặc **All Environments**. Sau khi lưu biến môi trường, redeploy project để Vercel áp dụng env mới.
+
+### Kiểm tra production
+
+```bash
+curl https://mycay.vercel.app/api/health
+```
+
+Kỳ vọng sau khi redeploy:
+
+```json
+{"ok":true,"resend_key_present":true,"resend_from_present":true}
+```
+
+Gửi thử đơn hàng:
+
+```bash
+curl -i -X POST https://mycay.vercel.app/api/order \
+  -H "Content-Type: application/json" \
+  -d '{"customerName":"Test","customerPhone":"0901234567","customerAddress":"Số 71C, Ngách 71, Ngõ 342 Khương Đình, Thanh Xuân, Hà Nội","cart":[{"menuItem":{"name":"Mì Cay","price":120000},"quantity":1}],"totalBill":120000}'
+```
 
 ---
 
@@ -99,6 +71,6 @@ Sau đó **Redeploy** là xong! 🎉
 - React 19 + TypeScript
 - Vite 6
 - Tailwind CSS v4
-- EmailJS (gửi mail đơn hàng)
+- Resend (gửi mail đơn hàng)
 - Lucide React (icons)
 - Vercel (hosting)
